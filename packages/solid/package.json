@@ -2,6 +2,7 @@
   "name": "src",
   "version": "1.0.0",
   "dependencies": {
-    "@uptab/core": "workspace:*"
+    "@uptab/core": "workspace:*",
+    "solid-js": "^1.2.6"
   }
 }

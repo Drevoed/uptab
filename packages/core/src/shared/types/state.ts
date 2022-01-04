@@ -1,9 +1,18 @@
 import type { BaseItem } from '@uptab/core/entities/item';
 import type { SharedParams } from '@uptab/core/shared/types/params';
 
-type KeysToPick = 'highlightedIndex' | 'isOpen' | 'selectedItem';
+type KeysToPick =
+  | 'highlightedIndex'
+  | 'isOpen'
+  | 'selectedItem'
+  | 'items'
+  | 'environment'
+  | 'itemToString';
 
 export type SharedState<Item extends BaseItem> = Pick<
-  SharedParams<Item>,
+  Required<SharedParams<Item>>,
   KeysToPick
->;
+> & {
+  inputValue: string;
+  previousResultCount: number;
+};
