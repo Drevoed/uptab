@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "inlineSourceMap": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "allowSyntheticDefaultImports": true,
+    "composite": true,
+    "importsNotUsedAsValues": "error",
+    "paths": {
+      "@uptab/core": ["./packages/core/src/index.ts"]
+    }
+  },
+  "references": [
+    {
+      "path": "packages/component"
+    },
+    {
+      "path": "packages/primitives"
+    },
+    {
+      "path": "packages/core"
+    }
+  ],
+  "exclude": ["node_modules", "**/*/dist"]
+}

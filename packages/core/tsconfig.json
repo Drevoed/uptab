@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "composite": true,
+    "baseUrl": "src",
+    "paths": {
+      "@uptab/core/*": ["./*"]
+    }
+  },
+  "include": ["./src"]
+}

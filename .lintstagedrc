@@ -1,0 +1,11 @@
+{
+  "*.{ts,js}": [
+    "prettier --write",
+    "eslint --fix './packages/**/src/**/*.{js,ts,tsx}'",
+    "git add"
+  ],
+  "{*.json,.prettierrc,.lintstagedrc,.eslintrc}": [
+    "prettier --write --parser json",
+    "git add"
+  ]
+}
