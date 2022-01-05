@@ -1,4 +1,1 @@
-
-
-
-export * from './create-select';
+export * from './select';

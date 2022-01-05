@@ -3,7 +3,7 @@ import { createEffect, mergeProps, on } from 'solid-js';
 import type { BaseItem } from '@uptab/core/entities/item';
 import { updateStatus } from '@uptab/core/features';
 import type { SharedParams } from '@uptab/core/shared/types';
-import type { SharedState } from '@uptab/core/shared/types/state';
+import type { SharedInternalState } from '@uptab/core/shared/types/state';
 
 import type { A11yStatusMessageOptions } from './types';
 
@@ -13,7 +13,8 @@ export type createA11YMessageSetterParams<Item extends BaseItem> = {
 
 export function createA11yMessageSetter<Item extends BaseItem>(
   getA11yMessage: (options: A11yStatusMessageOptions<Item>) => string,
-  state: SharedState<Item>
+  onArr: (() => unknown)[],
+  state: SharedInternalState<Item>
 ) {
   const merged = mergeProps(
     {
@@ -27,10 +28,12 @@ export function createA11yMessageSetter<Item extends BaseItem>(
     state
   );
 
-  createEffect(() => {
-    updateStatus(
-      () => getA11yMessage(merged),
-      state.environment?.document || window.document
-    );
-  });
+  createEffect(
+    on(onArr, () => {
+      updateStatus(
+        () => getA11yMessage(merged),
+        state.environment?.document || window.document
+      );
+    })
+  );
 }

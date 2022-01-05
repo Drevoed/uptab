@@ -9,10 +9,17 @@ type KeysToPick =
   | 'environment'
   | 'itemToString';
 
-export type SharedState<Item extends BaseItem> = Pick<
+export type SharedInternalState<Item extends BaseItem> = Pick<
   Required<SharedParams<Item>>,
   KeysToPick
 > & {
   inputValue: string;
   previousResultCount: number;
+};
+
+export type SharedDropdownState<Item extends BaseItem> = {
+  highlightedIndex: number;
+  isOpen: boolean;
+  selectedItem: Item | null;
+  inputValue: string;
 };

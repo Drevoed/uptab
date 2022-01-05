@@ -1,1 +1,1 @@
-export type BaseItem = Record<string, unknown>;
+export type BaseItem = unknown;
